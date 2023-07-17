@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+  <div class="py-5 text-center">
+    <h2 th:text="#{label.signUp}">회원가입</h2>
+  </div>
+
+  <form th:action method="post" th:object="${member}">
+    <div>
+      <label for="nickName" th:text="#{label.signUp.nickname}">닉네임</label>
+      <input type="text" id="nickName" th:field="*{nickName}" class="form-control" th:placeholder="#{label.signUp.nickname.placeHolder}">
+    </div>
+    <div>
+      <label for="email" th:text="#{label.signUp.email}">이메일</label>
+      <input type="text" id="email" th:field="*{email}" class="form-control" th:placeholder="#{label.signUp.email.placeHolder}">
+    </div>
+    <div>
+      <label for="password" th:text="#{label.signUp.password}">비밀번호</label>
+      <input type="text" id="password" th:field="*{password}" class="form-control" th:placeholder="#{label.signUp.password.placeHolder}">
+    </div>
+
+    <hr class="my-4">
+
+    <div class="row">
+      <div class="col">
+        <button class="w-100 btn btn-primary btn-lg" type="submit" th:text="#{label.signUp}">회원가입</button>
+      </div>
+      <div class="col">
+        <button class="w-100 btn btn-secondary btn-lg"
+                onclick="location.href='main.html'"
+                th:onclick="|location.href='@{/}'|"
+                type="button" th:text="#{label.common.cancel}">취소</button>
+      </div>
+    </div>
+  </form>
+</div>
+</body>
+</html>

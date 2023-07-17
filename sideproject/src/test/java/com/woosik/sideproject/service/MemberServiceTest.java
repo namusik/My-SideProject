@@ -24,7 +24,8 @@ class MemberServiceTest {
     void signUp() {
         MemberJoinDto memberJoinDto = new MemberJoinDto("test", "test@naver.com", "abc123");
         Member savedMember = memberService.signUp(memberJoinDto);
-        Member findMember = memberRepository.findById(savedMember.getId()).orElseThrow(() -> new NullPointerException("값이 없다."));
+        Member findMember = memberRepository.findById(savedMember.getId())
+                .orElseThrow(() -> new NullPointerException("값이 없다."));
         assertThat(savedMember).isEqualTo(findMember);
     }
 }
