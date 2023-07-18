@@ -11,12 +11,12 @@ public class Member {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY )
   private Long id;
-  private String nickName;
+  private String nickname;
   private String email;
   private String password;
 
-  public Member(String nickName, String email, String password) {
-    this.nickName = nickName;
+  public Member(String nickname, String email, String password) {
+    this.nickname = nickname;
     this.email = email;
     this.password = password;
   }
