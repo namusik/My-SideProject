@@ -20,4 +20,10 @@ public class Member {
     this.email = email;
     this.password = password;
   }
+
+  public void update(String nickname, String email, String password) {
+    this.nickname = nickname;
+    this.email = email;
+    this.password = password;
+  }
 }
