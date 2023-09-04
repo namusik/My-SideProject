@@ -13,23 +13,23 @@
 <body>
   <div>
     <div class="py-5 text-center">
-      <h2 th:text="#{label.signUp}">회원가입</h2>
+      <h2 th:text="#{member.add}">회원가입</h2>
     </div>
 
     <form th:action method="post" th:object="${member}">
       <div>
-        <label for="nickName" th:text="#{label.signUp.nickname}">닉네임</label>
-        <input type="text" id="nickName" th:field="*{nickname}" class="form-control" th:errorclass="field-error" th:placeholder="#{label.signUp.nickname.placeHolder}">
+        <label for="nickName" th:text="#{member.nickname}">닉네임</label>
+        <input type="text" id="nickName" th:field="*{nickname}" class="form-control" th:errorclass="field-error" th:placeholder="#{member.nickname.placeHolder}">
         <div class="field-error" th:errors="*{nickname}"></div>
       </div>
       <div>
-        <label for="email" th:text="#{label.signUp.email}">이메일</label>
-        <input type="text" id="email" th:field="*{email}" class="form-control" th:errorclass="field-error" th:placeholder="#{label.signUp.email.placeHolder}">
+        <label for="email" th:text="#{member.email}">이메일</label>
+        <input type="text" id="email" th:field="*{email}" class="form-control" th:errorclass="field-error" th:placeholder="#{member.email.placeHolder}">
         <div class="field-error" th:errors="*{email}"></div>
       </div>
       <div>
-        <label for="password" th:text="#{label.signUp.password}">비밀번호</label>
-        <input type="text" id="password" th:field="*{password}" class="form-control" th:errorclass="field-error" th:placeholder="#{label.signUp.password.placeHolder}">
+        <label for="password" th:text="#{member.password}">비밀번호</label>
+        <input type="text" id="password" th:field="*{password}" class="form-control" th:errorclass="field-error" th:placeholder="#{member.password.placeHolder}">
         <div class="field-error" th:errors="*{password}"></div>
       </div>
 
@@ -37,12 +37,12 @@
 
       <div class="row">
         <div class="col">
-          <button class="w-100 btn btn-primary btn-lg" type="submit" th:text="#{label.signUp}">회원가입</button>
+          <button class="w-100 btn btn-primary btn-lg" type="submit" th:text="#{member.add}">회원가입</button>
         </div>
         <div class="col">
           <button class="w-100 btn btn-secondary btn-lg"
                   th:onclick="|location.href='@{/}'|"
-                  type="button" th:text="#{label.common.cancel}">취소</button>
+                  type="button" th:text="#{cancel}">취소</button>
         </div>
       </div>
     </form>

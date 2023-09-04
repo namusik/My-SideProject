@@ -2,13 +2,14 @@ package com.woosik.sideproject.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
-public class MainController {
+public class HomeController {
     @GetMapping
-    public String mainPage() {
-        return "main";
+    public String homePage() {
+        return "home";
     }
 }

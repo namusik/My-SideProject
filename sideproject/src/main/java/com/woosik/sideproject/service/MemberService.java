@@ -1,7 +1,7 @@
 package com.woosik.sideproject.service;
 
 import com.woosik.sideproject.domain.Member;
-import com.woosik.sideproject.dto.MemberSaveDto;
+import com.woosik.sideproject.dto.MemberAddRequestDto;
 import com.woosik.sideproject.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,8 +13,8 @@ public class MemberService {
     private final MemberRepository memberRepository;
 
     @Transactional
-    public Member signUp(MemberSaveDto memberSaveDto) {
-        Member member = new Member(memberSaveDto.getNickname(), memberSaveDto.getEmail(), memberSaveDto.getPassword());
+    public Member add(MemberAddRequestDto memberAddRequestDto) {
+        Member member = new Member(memberAddRequestDto.getNickname(), memberAddRequestDto.getEmail(), memberAddRequestDto.getPassword());
         return memberRepository.save(member);
     }
 
@@ -24,9 +24,9 @@ public class MemberService {
     }
 
     @Transactional
-    public Member update(MemberSaveDto memberUpdateDto, Long memberId) {
+    public Member edit(MemberAddRequestDto memberUpdateDto, Long memberId) {
         Member findById = findById(memberId);
-        findById.update(memberUpdateDto.getNickname(), memberUpdateDto.getEmail(), memberUpdateDto.getPassword());
+        findById.edit(memberUpdateDto.getNickname(), memberUpdateDto.getEmail(), memberUpdateDto.getPassword());
 
         return findById;
     }

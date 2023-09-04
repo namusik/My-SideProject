@@ -1,7 +1,7 @@
 package com.woosik.sideproject.controller;
 
 import com.woosik.sideproject.domain.Member;
-import com.woosik.sideproject.dto.MemberSaveDto;
+import com.woosik.sideproject.dto.MemberAddRequestDto;
 import com.woosik.sideproject.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,21 +20,21 @@ public class MemberController {
 
     private final MemberService memberService;
 
-    @GetMapping("/signUp")
+    @GetMapping("/add")
     public String addForm(Model model) {
         model.addAttribute("member", new Member());
         return "/member/addForm";
     }
 
-    @PostMapping("/signUp")
-    public String add(@Validated @ModelAttribute("member") MemberSaveDto memberSaveDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+    @PostMapping("/add")
+    public String add(@Validated @ModelAttribute("member") MemberAddRequestDto memberAddRequestDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
         if (bindingResult.hasErrors()) {
             log.info("errors={}", bindingResult);
             return "member/addForm";
         }
 
-        Member member = memberService.signUp(memberSaveDto);
+        Member member = memberService.add(memberAddRequestDto);
         redirectAttributes.addAttribute("memberId", member.getId());
         return "redirect:/members/{memberId}";
     }
@@ -45,8 +45,6 @@ public class MemberController {
         model.addAttribute("member", member);
         return "member/editForm";
     }
-
-
 
     @GetMapping("/{memberId}")
     public String myPage(@PathVariable long memberId, Model model) {

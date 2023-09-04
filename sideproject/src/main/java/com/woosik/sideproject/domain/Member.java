@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Getter
 public class Member {
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY )
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private String nickname;
   private String email;
@@ -21,7 +21,7 @@ public class Member {
     this.password = password;
   }
 
-  public void update(String nickname, String email, String password) {
+  public void edit(String nickname, String email, String password) {
     this.nickname = nickname;
     this.email = email;
     this.password = password;
